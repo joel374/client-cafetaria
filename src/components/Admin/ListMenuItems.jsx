@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons"
 import {
   Box,
   Button,
@@ -8,10 +8,10 @@ import {
   MenuItem,
   MenuList,
   Text,
-} from "@chakra-ui/react";
-import { useState } from "react";
-import { BsPencil, BsTrash } from "react-icons/bs";
-import { Link } from "react-router-dom";
+} from "@chakra-ui/react"
+import { useState } from "react"
+import { BsPencil, BsTrash } from "react-icons/bs"
+import { Link } from "react-router-dom"
 
 const ListMenuItems = ({
   deleteHandler,
@@ -21,10 +21,10 @@ const ListMenuItems = ({
   menu_name,
   editForm,
 }) => {
-  const [icon, setIcon] = useState(false);
+  const [icon, setIcon] = useState(false)
   const iconHandler = () => {
-    icon ? setIcon(false) : setIcon(true);
-  };
+    icon ? setIcon(false) : setIcon(true)
+  }
   return (
     <Box borderBottom={"1px solid var(--N75,#E5E7E9)"} p="7px 16px">
       <Box
@@ -61,7 +61,7 @@ const ListMenuItems = ({
               bgColor={"transparent"}
               border="1px solid var(--color-border,#E5E7E9)"
             >
-              Atur
+              Action
             </MenuButton>
             <MenuList fontSize={"12px"}>
               <MenuItem p="6px 12px" h="36px" onClick={editForm}>
@@ -81,7 +81,7 @@ const ListMenuItems = ({
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default ListMenuItems;
+export default ListMenuItems

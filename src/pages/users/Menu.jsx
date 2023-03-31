@@ -42,14 +42,7 @@ const Menu = () => {
           menu_name={val.food_name}
           price={val.price}
           onClick={() =>
-            setOrder(
-              authSelector.id ? val : () => navigate("/login"),
-              toast({
-                title: "Login",
-                description: "Please login before continuing",
-                status: "error",
-              })
-            )
+            setOrder(authSelector.id ? val : () => ifNotLoggedIn())
           }
         />
       )
@@ -64,7 +57,7 @@ const Menu = () => {
       <Helmet>
         <title>Cafetaria | Menu</title>
       </Helmet>
-      <Box w="70%" h="100vh" p="16px" bgColor={"gray.100"}>
+      <Box w="70%" h={loading ? "100%" : "100vh"} p="16px" bgColor={"gray.100"}>
         {loading ? (
           <Grid templateColumns={"repeat(3, 1fr)"} gap={"2"} mt="52px">
             {renderMenu()}

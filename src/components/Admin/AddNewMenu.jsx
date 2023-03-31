@@ -118,7 +118,7 @@ const AddNewMenu = ({
                 <Input
                   value={formik.values.price}
                   name="price"
-                  type="price"
+                  type="tel"
                   onChange={formChangeHandler}
                 />
                 <FormErrorMessage>{formik.errors.price}</FormErrorMessage>

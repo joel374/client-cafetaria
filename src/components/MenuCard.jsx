@@ -1,4 +1,4 @@
-import { Box, Button, Image } from "@chakra-ui/react";
+import { Box, Button, Image } from "@chakra-ui/react"
 
 const MenuCard = ({ image_url, menu_name, price, onClick }) => {
   return (
@@ -36,6 +36,6 @@ const MenuCard = ({ image_url, menu_name, price, onClick }) => {
         </Button>
       </Box>
     </Box>
-  );
-};
-export default MenuCard;
+  )
+}
+export default MenuCard

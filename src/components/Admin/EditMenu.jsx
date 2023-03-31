@@ -160,7 +160,7 @@ const EditMenu = ({
                   !formik.values.image_url
                 }
               >
-                Create
+                Edit
               </Button>
             </Box>
           </ModalBody>
