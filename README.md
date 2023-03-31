@@ -14,3 +14,4 @@ after that the admin will see our order and he can accept or reject the order
 admin can also add, change and delete menus
 ![Cuplikan layar 2023-03-31 134804](https://user-images.githubusercontent.com/88383646/229049084-c3fc1b76-2125-4ac5-bbaf-e4f736990849.png)
 ![Cuplikan layar 2023-03-31 141105](https://user-images.githubusercontent.com/88383646/229049313-2a5406e7-93c4-4d68-a748-0650c43d86e2.png)
+![Cuplikan layar 2023-03-31 134758](https://user-images.githubusercontent.com/88383646/229049732-bae1b27c-27a8-4cde-ae18-d6b8200de680.png)
