@@ -6,7 +6,7 @@ here there is food that we can order.
 
 
 When we order dinner, we need to enter the table number and the number of servings
-[Cuplikan layar 2023-03-31 140615](https://user-images.githubusercontent.com/88383646/229048189-6e2e1cc8-0e66-442b-92c8-530d62cc12ff.png)
+![Cuplikan layar 2023-03-31 140615](https://user-images.githubusercontent.com/88383646/229048189-6e2e1cc8-0e66-442b-92c8-530d62cc12ff.png)
 
 after that the admin will see our order and he can accept or reject the order
 ![Cuplikan layar 2023-03-31 140847](https://user-images.githubusercontent.com/88383646/229048879-4150d9eb-9e87-4141-be0e-9e4d8b2f1a03.png)
