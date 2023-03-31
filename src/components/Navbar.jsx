@@ -7,12 +7,26 @@ import {
   PopoverContent,
   PopoverTrigger,
   Text,
-} from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+  useToast,
+} from "@chakra-ui/react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import { logout } from "../redux/features/authSlice"
 
 const Navbar = () => {
-  const authSelector = useSelector((state) => state.auth);
+  const authSelector = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+  const toast = useToast()
+
+  const logoutBtnHandler = () => {
+    localStorage.removeItem("auth_token")
+    dispatch(logout())
+
+    toast({
+      title: "User Logout",
+      status: "info",
+    })
+  }
   return (
     <Box
       boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
@@ -44,14 +58,32 @@ const Navbar = () => {
                   <Avatar name={authSelector.username} size={"sm"} />
                 </Box>
               </PopoverTrigger>
-              <PopoverContent>
-                <PopoverBody>
-                  <Box>
+              <PopoverContent w="100px">
+                <PopoverBody p="8px" fontSize={"14px"} fontWeight={"semibold"}>
+                  <Box
+                    _hover={{ bgColor: "burlywood", color: "brown" }}
+                    p="4px 6px"
+                    borderRadius={"4px"}
+                  >
                     <Link to="/order-list">Order</Link>
                   </Box>
-                  {authSelector.is_admin === true ? (
-                    <Link to="/admin/order">Admin</Link>
-                  ) : null}
+                  <Box
+                    _hover={{ bgColor: "burlywood", color: "brown" }}
+                    p="4px 6px"
+                    borderRadius={"4px"}
+                    onClick={() => logoutBtnHandler()}
+                  >
+                    Logout
+                  </Box>
+                  <Box
+                    _hover={{ bgColor: "burlywood", color: "brown" }}
+                    p="4px 6px"
+                    borderRadius={"4px"}
+                  >
+                    {authSelector.is_admin === true ? (
+                      <Link to="/admin/order">Admin</Link>
+                    ) : null}
+                  </Box>
                 </PopoverBody>
               </PopoverContent>
             </Popover>
@@ -71,6 +103,6 @@ const Navbar = () => {
         )}
       </Box>
     </Box>
-  );
-};
-export default Navbar;
+  )
+}
+export default Navbar

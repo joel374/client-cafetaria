@@ -13,11 +13,11 @@ import {
   ModalOverlay,
   Text,
   useToast,
-} from "@chakra-ui/react";
-import { useFormik } from "formik";
-import { useEffect, useState } from "react";
-import { axiosInstance } from "../../api";
-
+} from "@chakra-ui/react"
+import { useFormik } from "formik"
+import { useEffect, useState } from "react"
+import { axiosInstance } from "../../api"
+import * as Yup from "yup"
 const EditMenu = ({
   header,
   isOpenEditMenu,
@@ -27,12 +27,12 @@ const EditMenu = ({
   fieldValue,
   loading,
 }) => {
-  const [editId, setEditId] = useState(null);
-  const toast = useToast();
+  const [editId, setEditId] = useState(null)
+  const toast = useToast()
   const formChangeHandler = ({ target }) => {
-    const { name, value } = target;
-    formik.setFieldValue(name, value);
-  };
+    const { name, value } = target
+    formik.setFieldValue(name, value)
+  }
   const formik = useFormik({
     initialValues: {
       food_name: "",
@@ -41,41 +41,46 @@ const EditMenu = ({
     },
     onSubmit: async ({ food_name, price, image_url }) => {
       try {
-        loading();
+        loading()
         const response = await axiosInstance.patch(`/menu/editMenu/${id}`, {
           food_name,
           price,
           image_url,
-        });
+        })
 
+        formik.setFieldValue("food_name", "")
+        formik.setFieldValue("price", "")
+        formik.setFieldValue("image_url", "")
+        onCloseEditMenu()
         toast({
           title: "Menu Edited",
           status: "success",
           description: response.data.message,
-        });
-
-        formik.setFieldValue("food_name", "");
-        formik.setFieldValue("price", "");
-        formik.setFieldValue("image_url", "");
-        onCloseEditMenu();
-        fetch();
+        })
+        fetch()
       } catch (error) {
-        console.log(error);
+        console.log(error)
 
         toast({
           title: "Menu cannot Edited",
           status: "error",
-        });
+        })
       }
     },
-  });
+    validationSchema: Yup.object({
+      food_name: Yup.string().min(4, "Food name must be at least 4 characters"),
+      price: Yup.number().min(10000, "Price not less than Rp. 10,000"),
+      image_url: Yup.string(),
+    }),
+    validateOnChange: false,
+  })
 
   useEffect(() => {
-    formik.setFieldValue("food_name", fieldValue?.food_name);
-    formik.setFieldValue("price", fieldValue?.price);
-    formik.setFieldValue("image_url", fieldValue?.image_url);
-    setEditId(fieldValue?.id);
-  }, [isOpenEditMenu]);
+    formik.setFieldValue("food_name", fieldValue?.food_name)
+    formik.setFieldValue("price", fieldValue?.price)
+    formik.setFieldValue("image_url", fieldValue?.Images[0].image_url)
+    setEditId(fieldValue?.id)
+  }, [isOpenEditMenu])
   return (
     <Modal
       isOpen={isOpenEditMenu}
@@ -162,7 +167,7 @@ const EditMenu = ({
         </ModalContent>
       </form>
     </Modal>
-  );
-};
+  )
+}
 
-export default EditMenu;
+export default EditMenu

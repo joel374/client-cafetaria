@@ -1,10 +1,10 @@
-import { Avatar, Box, Text } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Avatar, Box, Text } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 const Sidebar = () => {
-  const authSelector = useSelector((state) => state.auth);
-  console.log(authSelector);
+  const authSelector = useSelector((state) => state.auth)
+  console.log(authSelector)
   return (
     <Box
       boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
@@ -24,7 +24,7 @@ const Sidebar = () => {
           fontWeight={"bold"}
           color={"brown"}
         >
-          Cafetaria
+          Cafetaria<sub style={{ fontSize: "12px" }}>Admin</sub>
         </Text>
       </Link>
 
@@ -47,12 +47,12 @@ const Sidebar = () => {
         <Link to="/admin/menu-list">
           <Text p="2">Menu List</Text>
         </Link>
-        <Link to="/admin/order">
-          <Text p="2">Order</Text>
+        <Link to="/admin/order-list">
+          <Text p="2">Order List</Text>
         </Link>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

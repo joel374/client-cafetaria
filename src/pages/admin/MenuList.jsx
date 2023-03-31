@@ -1,33 +1,28 @@
-import {
-  Box,
-  Button,
-  Spinner,
-  useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { HiOutlinePlus } from "react-icons/hi";
-import { axiosInstance } from "../../api";
-import AddNewMenu from "../../components/Admin/AddNewMenu";
-import EditMenu from "../../components/Admin/EditMenu";
-import ListMenuItems from "../../components/Admin/ListMenuItems";
-import Search from "../../components/Search";
+import { Box, Button, Spinner, useDisclosure, useToast } from "@chakra-ui/react"
+import { useEffect, useState } from "react"
+import { HiOutlinePlus } from "react-icons/hi"
+import { axiosInstance } from "../../api"
+import AddNewMenu from "../../components/Admin/AddNewMenu"
+import EditMenu from "../../components/Admin/EditMenu"
+import ListMenuItems from "../../components/Admin/ListMenuItems"
+import Search from "../../components/Search"
+import { Helmet } from "react-helmet"
 const MenuList = () => {
-  const [menu, setMenu] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [editForm, setEditForm] = useState(null);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast();
+  const [menu, setMenu] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [editForm, setEditForm] = useState(null)
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const toast = useToast()
 
   const fetchMenu = async () => {
     try {
-      const response = await axiosInstance.get("/menu");
-      setMenu(response.data.data);
-      setLoading(true);
+      const response = await axiosInstance.get("/menu")
+      setMenu(response.data.data)
+      setLoading(true)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
   const renderMenu = () => {
     return Array.from(loading && menu).map((val) => {
@@ -40,35 +35,38 @@ const MenuList = () => {
           deleteHandler={() => deleteMenu(val.id)}
           editForm={() => setEditForm(val)}
         />
-      );
-    });
-  };
+      )
+    })
+  }
 
   const deleteMenu = async (id) => {
     try {
-      setLoading(false);
-      const response = await axiosInstance.delete(`/menu/deleteMenu/${id}`);
+      setLoading(false)
+      const response = await axiosInstance.delete(`/menu/deleteMenu/${id}`)
       toast({
         title: "Menu deleted",
         status: "success",
         description: response.data.message,
-      });
-      fetchMenu();
+      })
+      fetchMenu()
     } catch (error) {
-      console.log(error);
+      console.log(error)
       toast({
         title: "Failed to delete",
         status: "error",
         description: error.response.data.message,
-      });
+      })
     }
-  };
+  }
 
   useEffect(() => {
-    fetchMenu();
-  }, []);
+    fetchMenu()
+  }, [])
   return (
     <Box ml="15%" bgColor={"gray.100"} h="100vh">
+      <Helmet>
+        <title>Cafetaria Admin | Menu List </title>
+      </Helmet>
       <Box p="16px">
         <Box
           display={"flex"}
@@ -92,7 +90,7 @@ const MenuList = () => {
 
         {/* Content */}
         <Box borderRadius={"8px"} bgColor="white">
-          <Box pt="16px" minH={"584px"}>
+          <Box minH={"584px"}>
             <Box>
               <Box
                 borderBottom={"1px solid var(--N75,#E5E7E9)"}
@@ -119,7 +117,7 @@ const MenuList = () => {
                   display={"flex"}
                   justifyContent="center"
                   alignItems={"center"}
-                  h="100vh"
+                  h="584px"
                 >
                   <Spinner
                     thickness="4px"
@@ -153,7 +151,7 @@ const MenuList = () => {
         fieldValue={editForm}
       />
     </Box>
-  );
-};
+  )
+}
 
-export default MenuList;
+export default MenuList

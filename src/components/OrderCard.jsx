@@ -1,5 +1,5 @@
-import { Box, Image } from "@chakra-ui/react";
-import moment from "moment";
+import { Box, Image } from "@chakra-ui/react"
+import moment from "moment"
 
 const OrderCard = ({
   image_url,
@@ -29,7 +29,7 @@ const OrderCard = ({
 
         <Box>
           <Box fontSize={"16px"} fontWeight={"bold"}>
-            Rp. {price.toLocaleString("id-ID")} x {quantity}
+            Rp. {price?.toLocaleString("id-ID")} x {quantity}
           </Box>
           <Box>Total </Box>
           Rp. {total_price?.toLocaleString("id-ID")}
@@ -37,7 +37,7 @@ const OrderCard = ({
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default OrderCard;
+export default OrderCard

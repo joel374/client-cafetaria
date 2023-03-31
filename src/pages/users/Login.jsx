@@ -8,13 +8,9 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { auth } from "../../firebase"
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { Helmet } from "react-helmet"
 
 const provider = new GoogleAuthProvider()
-
-// import { gapi } from "gapi-script";
-
-// const clientId =
-//   "107570705256-s408n1mll02e6fdjpf632l4iqcbft779.apps.googleusercontent.com";
 
 const Login = () => {
   const toast = useToast()
@@ -64,14 +60,19 @@ const Login = () => {
     <Box
       h="100vh"
       display={"flex"}
+      bgColor={"gray.100"}
       alignItems={"center"}
       justifyContent={"center"}
     >
+      <Helmet>
+        <title>Cafetaria | Login </title>
+      </Helmet>
       <Box
         w="300px"
         borderRadius={"10px"}
         boxShadow={"0px 1px 6px rgba(49,53,59,0.12)"}
         p="16px"
+        bgColor={"white"}
       >
         <Text
           textAlign={"center"}
@@ -84,16 +85,6 @@ const Login = () => {
         <Text textAlign={"center"} mb="8px" fontSize={"13px"}>
           Continue with
         </Text>
-        {/* <GoogleLogin
-          clientId={clientId}
-          buttonText={null}
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          cookiePolicy={"single_host_origin"}
-          isSignedIn={false}
-          render={(renderProps) => ( */}
-        {/* )}
-        /> */}
         <Button
           display={"flex"}
           onClick={loginGoogle}

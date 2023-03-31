@@ -13,9 +13,10 @@ import {
   ModalOverlay,
   Text,
   useToast,
-} from "@chakra-ui/react";
-import { useFormik } from "formik";
-import { axiosInstance } from "../../api";
+} from "@chakra-ui/react"
+import { useFormik } from "formik"
+import { axiosInstance } from "../../api"
+import * as Yup from "yup"
 
 const AddNewMenu = ({
   header,
@@ -25,11 +26,11 @@ const AddNewMenu = ({
   fetch,
   loading,
 }) => {
-  const toast = useToast();
+  const toast = useToast()
   const formChangeHandler = ({ target }) => {
-    const { name, value } = target;
-    formik.setFieldValue(name, value);
-  };
+    const { name, value } = target
+    formik.setFieldValue(name, value)
+  }
   const formik = useFormik({
     initialValues: {
       food_name: "",
@@ -38,32 +39,43 @@ const AddNewMenu = ({
     },
     onSubmit: async ({ food_name, price, image_url }) => {
       try {
-        loading();
+        loading()
         const response = await axiosInstance.post("/menu/createMenu", {
           food_name,
           price,
           image_url,
-        });
+        })
 
+        formik.setFieldValue("food_name", "")
+        formik.setFieldValue("price", "")
+        formik.setFieldValue("image_url", "")
+        onCloseAddNewMenu()
         toast({
           title: "Menu created",
           status: "success",
           description: response.data.message,
-        });
-        formik.setFieldValue("food_name", "");
-        formik.setFieldValue("price", "");
-        formik.setFieldValue("image_url", "");
-        onCloseAddNewMenu();
-        fetch();
+        })
+        fetch()
       } catch (error) {
-        console.log(error);
+        console.log(error)
         toast({
           title: "Menu cannot created",
           status: "error",
-        });
+          description: error.response.data.message,
+        })
       }
     },
-  });
+    validationSchema: Yup.object({
+      food_name: Yup.string()
+        .required("Food name is required")
+        .min(4, "Food name must be at least 4 characters"),
+      price: Yup.number()
+        .required("Price must be filled")
+        .min(10000, "Price not less than Rp. 10,000"),
+      image_url: Yup.string().required("Image url is required"),
+    }),
+    validateOnChange: false,
+  })
   return (
     <Modal
       isOpen={isOpenAddNewMenu}
@@ -150,7 +162,7 @@ const AddNewMenu = ({
         </ModalContent>
       </form>
     </Modal>
-  );
-};
+  )
+}
 
-export default AddNewMenu;
+export default AddNewMenu

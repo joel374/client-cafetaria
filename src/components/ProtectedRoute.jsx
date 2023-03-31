@@ -2,20 +2,20 @@ import { useToast } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-const AdminRoute = ({ children }) => {
+const ProtectedRoute = ({ children }) => {
   const authSelector = useSelector((state) => state.auth)
   const toast = useToast()
   const navigate = useNavigate()
 
-  if (!authSelector.is_admin) {
-    navigate("/")
+  if (!authSelector.id) {
+    navigate("/login")
     toast({
-      title: "Access Denied",
-      description: "You are not an admin",
+      title: "Login",
+      description: "Please login before continuing",
       status: "error",
     })
   }
   return children
 }
 
-export default AdminRoute
+export default ProtectedRoute

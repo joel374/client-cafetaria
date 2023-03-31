@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   FormControl,
+  FormErrorMessage,
   Image,
   Input,
   Modal,
@@ -9,11 +10,13 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
+  Text,
   Textarea,
   useToast,
 } from "@chakra-ui/react"
 import { useFormik } from "formik"
 import { axiosInstance } from "../api"
+import * as Yup from "yup"
 
 const ModalMenu = ({ isOpen, onClose, onOpen, val }) => {
   const toast = useToast()
@@ -48,6 +51,14 @@ const ModalMenu = ({ isOpen, onClose, onOpen, val }) => {
         })
       }
     },
+    validationSchema: Yup.object({
+      notes: Yup.string(),
+      quantity: Yup.number()
+        .required("Quantity must be filled")
+        .min(1, "Quantity not less than 1"),
+      table_number: Yup.number().required("Table number is required"),
+    }),
+    validateOnChange: false,
   })
 
   const formChangeHandler = ({ target }) => {
@@ -91,11 +102,17 @@ const ModalMenu = ({ isOpen, onClose, onOpen, val }) => {
                       mt="2"
                       placeholder="Quantity"
                       size={"sm"}
+                      defaultValue={1}
                       name="quantity"
                       value={formik.values.quantity}
                       onChange={formChangeHandler}
                       type="number"
                     />
+                    <FormErrorMessage>
+                      <Text fontSize={"10px"} mt="-2px">
+                        {formik.errors.quantity}
+                      </Text>
+                    </FormErrorMessage>
                   </FormControl>
                   <FormControl isInvalid={formik.errors.table_number}>
                     <Input
@@ -107,6 +124,11 @@ const ModalMenu = ({ isOpen, onClose, onOpen, val }) => {
                       size={"sm"}
                       type="number"
                     />
+                    <FormErrorMessage>
+                      <Text fontSize={"10px"} mt="-2px">
+                        {formik.errors.table_number}
+                      </Text>
+                    </FormErrorMessage>
                   </FormControl>
                 </Box>
                 <FormControl isInvalid={formik.errors.notes}>
