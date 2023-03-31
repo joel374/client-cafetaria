@@ -17,9 +17,11 @@ now we go to the order page, here are the orders that we have made, the date, th
 
 now we go to the admin page
 admin can see our order and he can accept or reject the order
-![Cuplikan layar 2023-03-31 225345](https://user-images.githubusercontent.com/88383646/229173892-64718245-f7bc-4294-8ceb-6d1d8f63927e.png)
+![Cuplikan layar 2023-03-31 232336](https://user-images.githubusercontent.com/88383646/229176956-4a8a7ae9-929f-4c37-bed5-e2121807702c.png)
 
 on the menu list page the admin can create, view, edit and delete menus
 here I use a link for food images because the server I use is a free server so he can only read, can't write, even if it could only be text
-![Cuplikan layar 2023-03-31 225547](https://user-images.githubusercontent.com/88383646/229174949-db0989a7-ab3b-4c54-bc23-8a8d5023d1df.png)
-![Cuplikan layar 2023-03-31 225610](https://user-images.githubusercontent.com/88383646/229174753-cd538452-bc81-45ce-84cb-ff3cd65023f5.png)
+![Cuplikan layar 2023-03-31 232123](https://user-images.githubusercontent.com/88383646/229176691-f1233a62-d3f3-4ffb-aa82-96bc20dc01f8.png)
+![Cuplikan layar 2023-03-31 232556](https://user-images.githubusercontent.com/88383646/229176892-61b658a7-78e9-46da-88a2-2bd96a4006a9.png)
+![Cuplikan layar 2023-03-31 232203](https://user-images.githubusercontent.com/88383646/229176779-82501277-010a-4ceb-89e4-2a0aa4994459.png)
+![Cuplikan layar 2023-03-31 232151](https://user-images.githubusercontent.com/88383646/229176610-4adfd748-5a77-4866-a704-585e1ba28e39.png)
