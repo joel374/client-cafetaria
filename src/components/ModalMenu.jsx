@@ -11,12 +11,12 @@ import {
   ModalOverlay,
   Textarea,
   useToast,
-} from "@chakra-ui/react";
-import { useFormik } from "formik";
-import { axiosInstance } from "../api";
+} from "@chakra-ui/react"
+import { useFormik } from "formik"
+import { axiosInstance } from "../api"
 
 const ModalMenu = ({ isOpen, onClose, onOpen, val }) => {
-  const toast = useToast();
+  const toast = useToast()
 
   const formik = useFormik({
     initialValues: {
@@ -31,29 +31,29 @@ const ModalMenu = ({ isOpen, onClose, onOpen, val }) => {
           notes,
           quantity,
           table_number,
-        });
+        })
 
-        onClose();
+        onClose()
         toast({
           message: "Order created",
           status: "success",
           description: response.data.message,
-        });
+        })
       } catch (error) {
-        console.log(error);
+        console.log(error)
         toast({
           title: "Error",
           description: error.response.data.message,
           status: "error",
-        });
+        })
       }
     },
-  });
+  })
 
   const formChangeHandler = ({ target }) => {
-    const { name, value } = target;
-    formik.setFieldValue(name, value);
-  };
+    const { name, value } = target
+    formik.setFieldValue(name, value)
+  }
   return (
     <Modal
       isOpen={isOpen}
@@ -77,10 +77,7 @@ const ModalMenu = ({ isOpen, onClose, onOpen, val }) => {
         <ModalBody maxH="529px" p={"16px"} fontSize={"14px"}>
           <form onSubmit={formik.handleSubmit}>
             <Box display={"flex"} gap="4">
-              <Image
-                w="50%"
-                src={`http://localhost:8000/public/${val?.Images[0].image_url}`}
-              />
+              <Image w="50%" src={val?.Images[0].image_url} />
               <Box>
                 <Box fontSize={"24px"} fontWeight={"semibold"}>
                   {val?.food_name}
@@ -144,7 +141,7 @@ const ModalMenu = ({ isOpen, onClose, onOpen, val }) => {
         </ModalBody>
       </ModalContent>
     </Modal>
-  );
-};
+  )
+}
 
-export default ModalMenu;
+export default ModalMenu
