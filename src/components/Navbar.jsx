@@ -81,7 +81,7 @@ const Navbar = () => {
                     borderRadius={"4px"}
                   >
                     {authSelector.is_admin === true ? (
-                      <Link to="/admin/order">Admin</Link>
+                      <Link to="/admin/order-list">Admin</Link>
                     ) : null}
                   </Box>
                 </PopoverBody>
