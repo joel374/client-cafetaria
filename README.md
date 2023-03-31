@@ -1,17 +1,27 @@
-We start from the login page, here I use firebase to log in, 
-![Cuplikan layar 2023-03-31 134544](https://user-images.githubusercontent.com/88383646/229047318-12fe1409-39eb-4f14-8357-3aa6640754ce.png)
+We start from the login page, here I use Firebase to log in, assuming that every visitor must have a Google account,
+![Cuplikan layar 2023-03-31 225714](https://user-images.githubusercontent.com/88383646/229170920-1deb57ce-5a77-4f76-ad59-d816cb8b1938.png)
 then we navigate to the main page,
-![Cuplikan layar 2023-03-31 134605](https://user-images.githubusercontent.com/88383646/229047715-0350da93-05c0-4af0-b94e-3cabc78d7fe1.png)
+![Cuplikan layar 2023-03-31 225636](https://user-images.githubusercontent.com/88383646/229171523-1e77c827-b9aa-45e8-a9c8-fe94903da02c.png)
 here there is food that we can order. 
 
 
 When we order dinner, we need to enter the table number and the number of servings
-![Cuplikan layar 2023-03-31 140615](https://user-images.githubusercontent.com/88383646/229048189-6e2e1cc8-0e66-442b-92c8-530d62cc12ff.png)
+![Cuplikan layar 2023-03-31 225645](https://user-images.githubusercontent.com/88383646/229171760-672e646f-ce0f-4ce2-99fa-55bedf9a8c19.png)
 
-after that the admin will see our order and he can accept or reject the order
-![Cuplikan layar 2023-03-31 140847](https://user-images.githubusercontent.com/88383646/229048879-4150d9eb-9e87-4141-be0e-9e4d8b2f1a03.png)
+then we can move the page by hovering over the username section
+![image](https://user-images.githubusercontent.com/88383646/229172419-bc784d2b-4bfd-4664-ab9b-cae1eb46e0ed.png)
+to get this admin only appears if he is indeed the admin
 
-admin can also add, change and delete menus
-![Cuplikan layar 2023-03-31 134804](https://user-images.githubusercontent.com/88383646/229049084-c3fc1b76-2125-4ac5-bbaf-e4f736990849.png)
-![Cuplikan layar 2023-03-31 141105](https://user-images.githubusercontent.com/88383646/229049313-2a5406e7-93c4-4d68-a748-0650c43d86e2.png)
-![Cuplikan layar 2023-03-31 134758](https://user-images.githubusercontent.com/88383646/229049732-bae1b27c-27a8-4cde-ae18-d6b8200de680.png)
+now we go to the order page, here are the orders that we have made, the date, the quantity and the total price
+![Cuplikan layar 2023-03-31 230942](https://user-images.githubusercontent.com/88383646/229173637-f6fd104f-3db3-4b38-8633-7e6323034039.png)
+
+now we go to the admin page
+admin can see our order and he can accept or reject the order
+![Cuplikan layar 2023-03-31 232336](https://user-images.githubusercontent.com/88383646/229176956-4a8a7ae9-929f-4c37-bed5-e2121807702c.png)
+
+on the menu list page the admin can create, view, edit and delete menus
+here I use a link for food images because the server I use is a free server so he can only read, can't write, even if it could only be text
+![Cuplikan layar 2023-03-31 232123](https://user-images.githubusercontent.com/88383646/229176691-f1233a62-d3f3-4ffb-aa82-96bc20dc01f8.png)
+![Cuplikan layar 2023-03-31 232556](https://user-images.githubusercontent.com/88383646/229176892-61b658a7-78e9-46da-88a2-2bd96a4006a9.png)
+![Cuplikan layar 2023-03-31 232203](https://user-images.githubusercontent.com/88383646/229176779-82501277-010a-4ceb-89e4-2a0aa4994459.png)
+![Cuplikan layar 2023-03-31 232151](https://user-images.githubusercontent.com/88383646/229176610-4adfd748-5a77-4866-a704-585e1ba28e39.png)
