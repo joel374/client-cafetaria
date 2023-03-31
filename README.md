@@ -17,7 +17,7 @@ now we go to the order page, here are the orders that we have made, the date, th
 
 now we go to the admin page
 admin can see our order and he can accept or reject the order
-![Cuplikan layar 2023-03-31 232336](https://user-images.githubusercontent.com/88383646/229176956-4a8a7ae9-929f-4c37-bed5-e2121807702c.png)
+![Cuplikan layar 2023-03-31 233323](https://user-images.githubusercontent.com/88383646/229178514-6146a2e4-c777-4c64-81de-626386c49203.png)
 
 on the menu list page the admin can create, view, edit and delete menus
 here I use a link for food images because the server I use is a free server so he can only read, can't write, even if it could only be text
