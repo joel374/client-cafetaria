@@ -21,9 +21,6 @@ const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const authSelector = useSelector((state) => state.auth)
-  console.log(authSelector)
-  // const [username, setUsername] = useState(null)
-  // const [email, setEmail] = useState(null)
 
   const loginGoogle = async () => {
     try {
